@@ -1,0 +1,186 @@
+export const projects = [
+  {
+    num: '01', slug: 'imaji-digital', title: 'IMAJI DIGITAL',
+    type: 'AR Product Showcase — UMKM',
+    desc: 'A mobile-first AR product showcase for Indonesian UMKM, allowing customers to view products in 3D and AR directly from their browser by scanning a QR code — no app installation required.',
+    color: '#050a0e', accent: '#22c55e',
+    url: 'https://imaji-digital.vercel.app/', github: 'https://github.com/kenkensigma/IMAJI-DIGITAL',
+    overview: [
+      'IMAJI DIGITAL is a mobile-first AR product showcase platform built for Indonesian UMKM. Customers scan a QR code and are instantly taken to a webpage where they can interact with 3D product models or view them in Augmented Reality — directly in their browser, with zero app installation.',
+      'The platform addresses a key problem in online UMKM sales: buyers struggle to visualize product size and fit before purchasing. By combining Google Model Viewer with WebXR and Scene Viewer, the site delivers a seamless 3D/AR experience on both Android and iOS devices.',
+    ],
+    images: [
+      { src: '/images/projects/imaji-digital/hero.png', caption: 'Hero Section & 3D Model Viewer' },
+      { src: '/images/projects/imaji-digital/about.png', caption: 'About — SCAN Integration Flow' },
+      { src: '/images/projects/imaji-digital/demo.jpeg', caption: 'Product Demo — 3D & AR View' },
+      { src: '/images/projects/imaji-digital/contact.png', caption: 'Contact & WhatsApp CTA' },
+    ],
+    features: [
+      { title: 'AR Mode', desc: 'Browser-based AR using Google Model Viewer with WebXR (Android) and Quick Look (iOS) — no app download required.' },
+      { title: '3D Model Viewer', desc: 'Interactive 3D viewer with rotation, zoom, and auto-rotate. Powered by Google Model Viewer with GLB model support.' },
+      { title: 'QR Code Flow', desc: 'Customers scan a QR code and land directly on the product page — instant 3D/AR access with no friction.' },
+      { title: 'Scroll Animations', desc: 'Smooth fade-up reveal animations triggered by scroll position using IntersectionObserver API.' },
+    ],
+    challenges: [
+      { challenge: 'AR compatibility across different Android devices', solution: 'Implemented canActivateAR detection to gracefully show a warning on unsupported devices while ensuring the 3D viewer always works as a fallback.' },
+      { challenge: 'iOS AR support without a USDZ file', solution: 'Scoped ar-modes to webxr and scene-viewer only, removing quick-look for iOS since only GLB assets were available.' },
+    ],
+    tech: { Backend: ['None (Static Site)'], Frontend: ['HTML5', 'CSS3', 'Vanilla JS', 'Google Model Viewer'], Tools: ['GLB/GLTF', 'Git', 'VS Code'] },
+    info: { Type: 'AR Product Showcase', Year: '2025', Role: 'Frontend Developer', Duration: '1 week' },
+    next: { slug: 'oop-school', title: 'OOP School' },
+  },
+  {
+    num: '02', slug: 'oop-school', title: 'OOP School',
+    type: 'Learning Platform REST API',
+    desc: 'A REST API backend for an OOP learning platform with course management, lesson progression, exercise evaluation, and a gamified unlock system.',
+    color: '#080B10', accent: '#60A5FA',
+    url: '', github: '',
+    overview: [
+      'OOP School is a learning platform backend built with Laravel 12, providing a structured REST API for managing OOP courses, lessons, and exercises.',
+      'The system features token-based authentication via Laravel Sanctum, role-based access control for Student, Teacher, and Admin, a gamified course unlock system, and server-side exercise evaluation.',
+    ],
+    images: [
+      { src: '/images/projects/oop-school/api-docs.png', caption: 'API Endpoints Overview' },
+      { src: '/images/projects/oop-school/postman.png', caption: 'Postman Collection' },
+      { src: '/images/projects/oop-school/database.png', caption: 'Database Schema' },
+      { src: '/images/projects/oop-school/sanctum.png', caption: 'Sanctum Auth Flow' },
+    ],
+    features: [
+      { title: 'Sanctum Auth', desc: 'Token-based authentication for 3 roles — Student, Teacher, and Admin. Each role has separate endpoints and middleware protection.' },
+      { title: 'Role-Based Access', desc: 'Three roles with dedicated middleware (EnsureRole) restricting access to their own endpoints only.' },
+      { title: 'Teacher Approval', desc: 'Teachers register with pending status and cannot login until approved or rejected by an admin.' },
+      { title: 'Course Unlock System', desc: 'Automatically unlocks the next course when all lessons in the current course are marked complete.' },
+      { title: 'Exercise Engine', desc: 'Server-side evaluation endpoint that checks submitted answers and returns pass/fail with feedback.' },
+    ],
+    challenges: [
+      { challenge: 'Tracking lesson completion per user without polluting the lessons table', solution: 'Used a pivot table between users and lessons to store completion status, keeping the lessons table clean and reusable.' },
+      { challenge: 'Automatically unlocking the next course on completion', solution: 'After every lesson completion, a check runs to see if all lessons are done. If so, the next course is unlocked via a user_course pivot.' },
+    ],
+    tech: { Backend: ['Laravel 12', 'PHP 8.2', 'MySQL'], Auth: ['Laravel Sanctum'], Tools: ['Thunder Client', 'ngrok', 'VS Code'] },
+    info: { Type: 'REST API', Year: '2025', Role: 'Backend Developer', Duration: '1 week' },
+    next: { slug: 'noja-garage', title: 'Noja Garage' },
+  },
+  {
+    num: '03', slug: 'noja-garage', title: 'Noja Garage',
+    type: 'Product Catalog Website',
+    desc: 'A Laravel-based car promotional website with MySQL database, TailwindCSS frontend, and simple admin dashboard for managing car listings.',
+    color: '#0a1a0f', accent: '#4ade80',
+    url: '', github: '',
+    overview: [
+      'Noja Garage is a car promotional and catalog website built for an automotive business. It features a clean, browsable inventory of car listings with filtering by brand, year, and price range.',
+      'The project includes a custom admin dashboard where staff can add, edit, and delete car listings, upload multiple photos per car, and manage inquiries from potential buyers.',
+    ],
+    images: [
+      { src: '/images/projects/noja-garage/home.png', caption: 'Homepage — Car Catalog' },
+      { src: '/images/projects/noja-garage/listing.png', caption: 'Car Listing Detail Page' },
+      { src: '/images/projects/noja-garage/detail.png', caption: 'Detail Page with Photo Gallery' },
+      { src: '/images/projects/noja-garage/dashboard.png', caption: 'Admin Dashboard' },
+    ],
+    features: [
+      { title: 'Car Catalog', desc: 'Browsable inventory with filtering by brand, year, price range, and condition (new/used).' },
+      { title: 'Photo Gallery', desc: 'Each car listing supports multiple photos with a lightbox viewer and thumbnail navigation.' },
+      { title: 'Admin Dashboard', desc: 'Simple CRUD admin panel for managing car listings, photo uploads, and buyer inquiries.' },
+      { title: 'Inquiry System', desc: 'Contact form on each listing that sends email notifications to the business owner.' },
+    ],
+    challenges: [
+      { challenge: 'Handling multiple image uploads efficiently', solution: 'Used Laravel filesystem with Intervention Image to generate thumbnails automatically on upload.' },
+    ],
+    tech: { Backend: ['Laravel', 'PHP 8.2', 'MySQL'], Frontend: ['CSS', 'HTML5', 'Blade'], Tools: ['Git', 'VS Code'] },
+    info: { Type: 'Product Catalog', Year: '2024', Role: 'Full Stack Developer', Duration: '2 weeks' },
+    next: { slug: 'ZBooks', title: 'ZBooks SMK' },
+  },
+  {
+    num: '04', slug: 'ZBooks', title: 'ZBooks SMK',
+    type: 'Library Management System',
+    desc: 'A digital school library application with role-based access, book borrowing & return management, automated fine calculation, and monthly reports.',
+    color: '#0f1117', accent: '#7c6ff7',
+    url: '', github: '',
+    overview: [
+      'ZBooks SMK is a full-featured digital library management system built with Laravel 12, MySQL, and Bootstrap 5. It serves two user roles — Admin and Student — each with a dedicated dashboard.',
+      'Key capabilities include a complete book catalog with stock management, a borrowing and return workflow with automated overdue detection and fine calculation, and a monthly report dashboard with Chart.js.',
+    ],
+    images: [
+      { src: '/images/projects/zbooks/dashboard-admin.png', caption: 'Admin Dashboard' },
+      { src: '/images/projects/zbooks/books.png', caption: 'Book Catalog' },
+      { src: '/images/projects/zbooks/transactions.png', caption: 'Transaction Management' },
+      { src: '/images/projects/zbooks/report.png', caption: 'Monthly Report' },
+    ],
+    features: [
+      { title: 'Role-Based Access', desc: 'Separate dashboards for Admin and Student. Admins manage all data; students can only view, borrow, and return books.' },
+      { title: 'Borrow & Return Workflow', desc: 'Students borrow with a 7-day due date. Returns auto-calculate fines at Rp 1,000/day.' },
+      { title: 'Live Stock Management', desc: 'Book stock decrements on borrow and increments on return inside a DB transaction.' },
+      { title: 'Reports & Analytics', desc: 'Monthly borrowing reports with Chart.js bar chart and top-5 most borrowed books.' },
+    ],
+    challenges: [
+      { challenge: 'Preventing duplicate active loans', solution: 'Added a query check before every borrow for an existing active transaction for the same user–book pair.' },
+      { challenge: 'Keeping stock consistent under concurrent requests', solution: 'Wrapped every borrow and return in DB::transaction() with a stock guard in the Book model.' },
+    ],
+    tech: { Backend: ['Laravel 12', 'PHP 8.2', 'MySQL'], Frontend: ['Blade', 'Bootstrap 5', 'Chart.js'], Tools: ['Git', 'VS Code'] },
+    info: { Type: 'Web App / Academic', Year: '2025', Role: 'Full Stack Developer', Duration: '2 weeks' },
+    next: { slug: 'bible-bake', title: 'Bible-Bake' },
+  },
+  {
+    num: '05', slug: 'bible-bake', title: 'Bible-Bake Website',
+    type: 'Landing Page / E-Commerce UI',
+    desc: 'A modern, aesthetic landing page for a bakery brand featuring interactive UI, animated elements, and a simple shopping cart experience.',
+    color: '#1a1200', accent: '#f472b6',
+    url: '', github: 'https://github.com/Bagusnugraha14/donut-web-client',
+    overview: [
+      'Bible-Bake is a modern and visually engaging bakery landing page inspired by contemporary dessert brands. The project focuses on an immersive user experience through aesthetic design, smooth animations, and intuitive interaction patterns.',
+      'The website features a playful yet clean interface with a dynamic cart system, allowing users to simulate a real shopping experience.',
+    ],
+    images: [
+      { src: '/images/projects/bible-bake/hero.png', caption: 'Hero Section' },
+      { src: '/images/projects/bible-bake/menu.png', caption: 'Product Menu' },
+      { src: '/images/projects/bible-bake/reviews.png', caption: 'Customer Reviews' },
+      { src: '/images/projects/bible-bake/cart.png', caption: 'Cart Interaction' },
+    ],
+    features: [
+      { title: 'Modern Aesthetic UI', desc: 'Playful style using gradients, soft colors, and smooth animations to enhance user engagement.' },
+      { title: 'Interactive Cart System', desc: 'Users can add items, adjust quantities, and view total prices dynamically without page reload.' },
+      { title: 'Smooth Animations', desc: 'Multiple custom animations including floating elements, hover effects, and transitions.' },
+      { title: 'Responsive Design', desc: 'Optimised for both desktop and mobile devices.' },
+    ],
+    challenges: [
+      { challenge: 'Maintaining performance with many animations', solution: 'Optimised CSS animations and limited heavy effects for smooth transitions across devices.' },
+      { challenge: 'Engaging UI without overwhelming users', solution: 'Balanced playful design with clean layout structure, keeping readability as the priority.' },
+    ],
+    tech: { Frontend: ['HTML5', 'CSS3', 'JavaScript'], Design: ['Custom CSS Animations', 'Responsive Layout'], Tools: ['Git', 'VS Code'] },
+    info: { Type: 'Landing Page', Year: '2026', Role: 'Frontend Developer', Duration: '1 week' },
+    next: { slug: 'house-of-burger', title: 'House of Burger' },
+  },
+  {
+    num: '06', slug: 'house-of-burger', title: 'House of Burger',
+    type: 'Food Delivery Website',
+    desc: 'A modern and visually appealing burger restaurant website designed to showcase menu items and provide a seamless online ordering experience.',
+    color: '#100a1a', accent: '#a78bfa',
+    url: 'https://house-of-burger-seven.vercel.app/', github: 'https://github.com/kenkensigma/House-of-Burger',
+    overview: [
+      'House of Burger is a modern restaurant website built to highlight premium burgers through a clean, bold, and visually engaging interface with strong branding and smooth navigation.',
+      'The website features an interactive menu section, responsive layout, and a simple ordering flow allowing users to explore products and place orders easily.',
+    ],
+    images: [
+      { src: '/images/projects/house-of-burger/hero-burger.png', caption: 'Homepage Hero Section' },
+      { src: '/images/projects/house-of-burger/menu-burger.png', caption: 'Burger Menu Display' },
+      { src: '/images/projects/house-of-burger/contact-burger.png', caption: 'Contact Section' },
+      { src: '/images/projects/house-of-burger/order.png', caption: 'Ordering Interface' },
+    ],
+    features: [
+      { title: 'Modern UI/UX Design', desc: 'Clean and bold interface with strong visual hierarchy, attractive and easy to navigate.' },
+      { title: 'Responsive Layout', desc: 'Fully responsive across desktop, tablet, and mobile devices.' },
+      { title: 'Interactive Menu', desc: 'Dynamic menu section showcasing burger items with images, descriptions, and pricing.' },
+      { title: 'Online Ordering Flow', desc: 'Simple and intuitive ordering experience to browse and select items quickly.' },
+    ],
+    challenges: [
+      { challenge: 'Visually appealing food layout without sacrificing performance', solution: 'Optimized images and used efficient layout structuring to maintain fast loading times.' },
+      { challenge: 'Consistent design across multiple screen sizes', solution: 'Implemented responsive design using flexible layouts and media queries.' },
+    ],
+    tech: { Frontend: ['HTML', 'CSS', 'JavaScript'], UI: ['Custom CSS', 'Responsive Design'], Tools: ['Vercel', 'Git', 'Figma'] },
+    info: { Type: 'Restaurant Website', Year: '2025', Role: 'Frontend Developer', Duration: '1–2 weeks' },
+    next: { slug: 'imaji-digital', title: 'IMAJI DIGITAL' },
+  },
+]
+
+export function getProjectBySlug(slug) {
+  return projects.find(p => p.slug === slug) || null
+}
