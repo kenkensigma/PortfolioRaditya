@@ -20,10 +20,7 @@
     --c-accent:       #ffffff;
     --c-glow:         rgba(255,255,255,0.06);
 
-    /* Typography */
-    --font-display:  'Bebas Neue', sans-serif;
-    --font-heading:  'Roboto Slab', sans-serif;
-    --font-body:     'DM Sans', sans-serif;
+    /* Typography managed by next/font in layout.jsx */
 
     /* Spacing */
     --section-gap:   140px;

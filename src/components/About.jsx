@@ -1,3 +1,5 @@
+import { SiPhp, SiLaravel, SiMysql, SiJavascript } from 'react-icons/si'
+
 export default function About() {
   const values = [
     { icon: '⟳', title: 'Iterative Thinking', desc: 'Continuous improvement in every build cycle.' },
@@ -5,10 +7,10 @@ export default function About() {
     { icon: '◉', title: 'Clean Code',         desc: 'Readable, maintainable, intentional.' },
   ]
   const tags = [
-    { cls: '1', icon: 'devicon-php-plain colored',        label: 'PHP' },
-    { cls: '2', icon: 'devicon-laravel-plain colored',    label: 'Laravel' },
-    { cls: '3', icon: 'devicon-mysql-plain colored',      label: 'MySQL' },
-    { cls: '4', icon: 'devicon-javascript-plain colored', label: 'JS' },
+    { cls: '1', Icon: SiPhp,        label: 'PHP' },
+    { cls: '2', Icon: SiLaravel,    label: 'Laravel' },
+    { cls: '3', Icon: SiMysql,      label: 'MySQL' },
+    { cls: '4', Icon: SiJavascript, label: 'JS' },
   ]
 
   return (
@@ -51,7 +53,7 @@ export default function About() {
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
                 {tags.map(t => (
                   <div key={t.cls} className={`about__tech-tag about__tech-tag--${t.cls}`}>
-                    <i className={t.icon} />
+                    <t.Icon />
                     <span>{t.label}</span>
                   </div>
                 ))}
