@@ -297,6 +297,8 @@ body.js-ready .reveal-up.revealed {
     margin: 0 auto;
     padding: 0 var(--container-pad);
     height: var(--navbar-h);
+    position: relative;
+    z-index: 100;
 }
 
 .navbar__brand {
@@ -371,8 +373,6 @@ body.js-ready .reveal-up.revealed {
     flex-direction: column;
     gap: 5px;
     padding: 6px;
-    position: relative;
-    z-index: 100;
 }
 
 .navbar__hamburger span {
@@ -420,15 +420,37 @@ body.js-ready .reveal-up.revealed {
     gap: 32px;
 }
 
+.navbar__mobile li {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+
+.navbar__mobile.open li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays */
+.navbar__mobile.open li:nth-child(1) { transition-delay: 0.1s; }
+.navbar__mobile.open li:nth-child(2) { transition-delay: 0.2s; }
+.navbar__mobile.open li:nth-child(3) { transition-delay: 0.3s; }
+.navbar__mobile.open li:nth-child(4) { transition-delay: 0.4s; }
+.navbar__mobile.open li:nth-child(5) { transition-delay: 0.5s; }
+
 .navbar__mobile-link {
     font-family: var(--font-display);
     font-size: clamp(40px, 10vw, 72px);
     letter-spacing: 0.04em;
     color: rgba(255,255,255,0.4);
-    transition: color var(--dur-fast);
+    transition: color var(--dur-fast), transform var(--dur-fast);
+    display: inline-block;
 }
 
-.navbar__mobile-link:hover { color: var(--c-white); }
+.navbar__mobile-link:hover { 
+    color: var(--c-white);
+    transform: scale(1.05);
+}
 
 /* ============================================================
    HERO

@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata = {
   title: "Raditya Putra — Backend Developer",
@@ -34,7 +35,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <WhatsAppFloat />
       </body>
     </html>

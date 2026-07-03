@@ -20,6 +20,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
   const scroll = (e, href) => {
     e.preventDefault()
     const target = document.querySelector(href)
@@ -35,33 +44,35 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className={`navbar${scrolled ? ' scrolled' : ''}`} id="navbar">
-      <div className="navbar__inner">
-        <a href="#home" className="navbar__brand" onClick={e => scroll(e, '#home')}>
-          Raditya<span className="navbar__brand-dot">.</span>Dev
-        </a>
+    <>
+      <nav className={`navbar${scrolled ? ' scrolled' : ''}`} id="navbar">
+        <div className="navbar__inner">
+          <a href="#home" className="navbar__brand" onClick={e => scroll(e, '#home')}>
+            Raditya<span className="navbar__brand-dot">.</span>Dev
+          </a>
 
-        <ul className="navbar__links" role="list">
-          {links.map(l => (
-            <li key={l.id}>
-              <a href={l.href} className={`navbar__link${active === l.id ? ' active' : ''}`}
-                data-section={l.id} onClick={e => scroll(e, l.href)}>
-                {l.label}
+          <ul className="navbar__links" role="list">
+            {links.map(l => (
+              <li key={l.id}>
+                <a href={l.href} className={`navbar__link${active === l.id ? ' active' : ''}`}
+                  data-section={l.id} onClick={e => scroll(e, l.href)}>
+                  {l.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href="#contact" className="navbar__link navbar__link--cta" onClick={e => scroll(e, '#contact')}>
+                Contact
               </a>
             </li>
-          ))}
-          <li>
-            <a href="#contact" className="navbar__link navbar__link--cta" onClick={e => scroll(e, '#contact')}>
-              Contact
-            </a>
-          </li>
-        </ul>
+          </ul>
 
-        <button className={`navbar__hamburger${mobileOpen ? ' open' : ''}`}
-          onClick={() => setMobileOpen(p => !p)} aria-label="Toggle menu">
-          <span /><span /><span />
-        </button>
-      </div>
+          <button className={`navbar__hamburger${mobileOpen ? ' open' : ''}`}
+            onClick={() => setMobileOpen(p => !p)} aria-label="Toggle menu">
+            <span /><span /><span />
+          </button>
+        </div>
+      </nav>
 
       <div className={`navbar__mobile${mobileOpen ? ' open' : ''}`}>
         <ul role="list">
@@ -74,6 +85,6 @@ export default function Navbar() {
           ))}
         </ul>
       </div>
-    </nav>
+    </>
   )
 }
