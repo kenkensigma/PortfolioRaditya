@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 export const metadata = {
   title: "Raditya Putra — Backend Developer",
@@ -32,7 +33,10 @@ export default function RootLayout({ children }) {
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }

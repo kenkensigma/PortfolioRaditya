@@ -371,6 +371,8 @@ body.js-ready .reveal-up.revealed {
     flex-direction: column;
     gap: 5px;
     padding: 6px;
+    position: relative;
+    z-index: 100;
 }
 
 .navbar__hamburger span {
@@ -2993,4 +2995,89 @@ body.js-ready .hero__scroll.revealed {
 }
 .name-hover:hover {
     text-shadow: 0 0 40px rgba(255,255,255,0.15);
+}
+
+/* ============================================================
+   WHATSAPP FLOAT
+   ============================================================ */
+.wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+}
+
+.wa-float__icon {
+    width: 34px;
+    height: 34px;
+}
+
+@media (max-width: 640px) {
+    .wa-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .wa-float__icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ============================================================
+   GLOBAL LOADER
+   ============================================================ */
+.global-loader-wrapper {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--c-bg);
+    z-index: 9999;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.global-loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--c-white);
+    animation: loader-spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+.global-loader-text {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    animation: loader-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loader-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes loader-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }

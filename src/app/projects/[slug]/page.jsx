@@ -1,12 +1,13 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getProjectBySlug } from '@/data/projects'
 import Navbar from '@/components/Navbar'
 
 export default function ProjectPage({ params }) {
-  const project = getProjectBySlug(params.slug)
+  const { slug } = use(params)
+  const project = getProjectBySlug(slug)
   if (!project) notFound()
 
   const [lightbox, setLightbox] = useState(null)
